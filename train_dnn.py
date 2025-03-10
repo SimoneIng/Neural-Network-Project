@@ -162,4 +162,4 @@ def random_search(num_execution):
     print("Random Search Done..\n")
 
 
-random_search(2)
+random_search(3)

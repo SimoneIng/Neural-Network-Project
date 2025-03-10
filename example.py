@@ -2,10 +2,11 @@ import torch.optim.sgd
 from dataset import train_loader, validation_loader, test_loader, train_size, validation_size, test_size, batch_size
 import torch 
 from torch import nn 
+import matplotlib.pyplot as plt
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-learning_rate = 0.01
+learning_rate = 0.001
 
 class DeepNeuralNetwork(nn.Module): 
     def __init__(self): 
@@ -16,11 +17,7 @@ class DeepNeuralNetwork(nn.Module):
         self.first_hidden_layer = nn.Sequential(
             nn.Linear(28*28, 256),
             nn.ReLU(), 
-            nn.Linear(256, 512),
-            nn.ReLU(), 
-            nn.Linear(512, 1024),
-            nn.ReLU(), 
-            nn.Linear(1024, 256),
+            nn.Linear(256, 256), 
             nn.ReLU(), 
             nn.Linear(256, 10)
         )
@@ -41,6 +38,9 @@ def train_loop(dataloader, model, loss_fn, optimizer):
     
     model.train()
     
+    avg_loss = 0
+    loss_sum = 0
+    
     for batch, (X, y) in enumerate(dataloader): 
         X, y = X.to(device), y.to(device)  # Move to GPU
         
@@ -56,13 +56,18 @@ def train_loop(dataloader, model, loss_fn, optimizer):
         if batch % 100 == 0:
             loss, current = loss.item(), batch * batch_size + len(X)
             print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+        
+        loss_sum += loss
+        
+    avg_loss = loss_sum / size
+    return avg_loss
 
-def test_loop (dataloader, model, loss_fn):
+def validation_loop (dataloader, model, loss_fn):
     
     size = len(dataloader.dataset)
     model.eval()
     batch_nums = len(dataloader)
-    test_loss, correct = 0, 0 
+    val_loss, correct = 0, 0 
     
     # valutazione del modello 
     with torch.no_grad():
@@ -70,40 +75,70 @@ def test_loop (dataloader, model, loss_fn):
             X, y = X.to(device), y.to(device)  # Move to GPU
             
             pred = model(X)
-            test_loss += loss_fn(pred, y).item()
+            val_loss += loss_fn(pred, y).item()
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     
-    test_loss /= batch_nums
+    val_loss /= batch_nums
     correct /= size 
     
-    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+    print(f"Validation Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {val_loss:>8f} \n")
     
-    return correct
-
+    return val_loss
 
 
 def train(epochs): 
-
-    best_accurancy = 0
-    best_accurancy_epoch = -1
+    
+    train_losses = [] 
+    validation_losses = []
 
     for t in range(epochs): 
         print(f"Epoch: {t+1}\n")
 
-        train_loop(train_loader, model, loss_fn, optimizer)
-        acc = test_loop(validation_loader, model, loss_fn)
-        
-        if(acc > best_accurancy): 
-            best_accurancy = acc
-            best_accurancy_epoch = t+1 
+        avg_tloss = train_loop(train_loader, model, loss_fn, optimizer)
+        train_losses.insert(t, avg_tloss)
+        avg_vloss = validation_loop(validation_loader, model, loss_fn)
+        validation_losses.insert(t, avg_vloss)
         
     print("Done...\n")
-    print(f"Best Accurancy: {(100*best_accurancy):>0.1f}%, Epoch: {best_accurancy_epoch} \n")
+    
+    # Plotting
+    plt.figure(figsize=(10,5))
+    plt.plot(range(1, epochs + 1), train_losses, label="Training Error")
+    plt.plot(range(1, epochs + 1), validation_losses, label="Validation Error")
+    plt.xlabel("Epochs")
+    plt.ylabel("Error")
+    plt.title("Training Vs Validation Loss")
+    plt.show()
+
+
+
+def testing(dataloader, model, loss_fn):
+    
+    size = len(dataloader.dataset) 
+    model.eval()
+    batch_nums = len(dataloader)
+    test_loss, correct = 0, 0 
+    
+    with torch.no_grad(): 
+        for X, y in dataloader: 
+            X, y = X.to(device), y.to(device)
+            
+            pred = model(X)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+               
+    test_loss /= batch_nums
+    correct /= size 
+    
+    print(f"Testing Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n") 
+
+
 
 
 
 # Actual Training
-train(15)
+train(100)
+testing(test_loader, model, loss_fn)
 
 
     

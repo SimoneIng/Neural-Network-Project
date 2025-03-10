@@ -4,11 +4,11 @@ from torch.utils.data import DataLoader, Subset, random_split
 import matplotlib.pyplot as plt 
 import numpy as np
 
-batch_size = 32
+batch_size = 64
 
 train_size = 8000 
 validation_size = 2000
-test_size = 2500
+test_size = 3500
 
 transform = transforms.Compose([
     transforms.ToTensor(),
