@@ -7,10 +7,14 @@ from torchvision import datasets, transforms
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+import time
+import os
+import json
+from datetime import datetime
 from sklearn.metrics import confusion_matrix, classification_report
 import seaborn as sns
 
-# Impostazione del seed per la riproducibilità
+# Set seed for reproducibility
 SEED = 42
 torch.manual_seed(SEED)
 torch.cuda.manual_seed(SEED)
@@ -18,35 +22,43 @@ np.random.seed(SEED)
 random.seed(SEED)
 torch.backends.cudnn.deterministic = True
 
-# Controllo della disponibilità di GPU
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Utilizzo: {device}")
+# Create image directory if it doesn't exist
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+image_dir = f"./images/{timestamp}"
+os.makedirs(image_dir, exist_ok=True)
 
-# Parametri del dataset
-TRAINING_SIZE = 10000
-TEST_SIZE = 2500
+# Check GPU availability
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using: {device}")
+
+# Dataset parameters
+TRAINING_SIZE = 8000  # Modified: 8000 for training
+VALIDATION_SIZE = 2000  # Modified: 2000 for validation
+TEST_SIZE = 2500  # 2500 for testing
 BATCH_SIZE = 64
 
-# Caricamento e preparazione del dataset MNIST
+# Load and prepare MNIST dataset
 transform = transforms.Compose([
     transforms.ToTensor(),
-    transforms.Normalize((0.1307,), (0.3081,))  # Media e deviazione standard di MNIST
+    transforms.Normalize((0.1307,), (0.3081,))  # Mean and standard deviation of MNIST
 ])
 
-# Caricamento del dataset completo
+# Load complete dataset
 full_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
 
-# Selezione di un sottoinsieme casuale per il training set e validation set
-train_size = TRAINING_SIZE
-val_size = len(full_dataset) - train_size
-train_dataset, val_dataset = random_split(full_dataset, [train_size, val_size])
+# Select a subset of 10000 examples from the full training dataset
+subset_indices = torch.randperm(len(full_dataset))[:TRAINING_SIZE + VALIDATION_SIZE]
+dataset_subset = torch.utils.data.Subset(full_dataset, subset_indices)
 
-# Selezione di un sottoinsieme casuale per il test set
+# Split the subset into training and validation sets
+train_dataset, val_dataset = random_split(dataset_subset, [TRAINING_SIZE, VALIDATION_SIZE])
+
+# Select a random subset for the test set
 test_indices = torch.randperm(len(test_dataset))[:TEST_SIZE]
 test_subset = torch.utils.data.Subset(test_dataset, test_indices)
 
-# Creazione dei dataloader
+# Create dataloaders
 train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
 test_loader = DataLoader(test_subset, batch_size=BATCH_SIZE, shuffle=False)
@@ -55,7 +67,7 @@ print(f"Training set size: {len(train_dataset)}")
 print(f"Validation set size: {len(val_dataset)}")
 print(f"Test set size: {len(test_subset)}")
 
-# Definizione della rete neurale Fully Connected (MLP)
+# Definition of the Fully Connected neural network (MLP)
 class MLP(nn.Module):
     def __init__(self, hidden_layers, hidden_sizes, dropout_rate, activation_fn):
         super(MLP, self).__init__()
@@ -64,11 +76,11 @@ class MLP(nn.Module):
         layers = [nn.Flatten()]
         input_size = 28 * 28
         
-        # Aggiunta dei layer nascosti
+        # Add hidden layers
         for i in range(hidden_layers):
             layers.append(nn.Linear(input_size, hidden_sizes[i]))
             
-            # Funzione di attivazione
+            # Activation function
             if activation_fn == 'relu':
                 layers.append(nn.ReLU())
             elif activation_fn == 'tanh':
@@ -82,7 +94,7 @@ class MLP(nn.Module):
             
             input_size = hidden_sizes[i]
         
-        # Output layer (10 classi)
+        # Output layer (10 classes)
         layers.append(nn.Linear(input_size, 10))
         
         self.model = nn.Sequential(*layers)
@@ -90,20 +102,26 @@ class MLP(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-# Definizione della rete neurale Convoluzionale (CNN)
+# Definition of the Convolutional neural network (CNN)
 class CNN(nn.Module):
     def __init__(self, num_conv_layers, filters, kernel_size, pool_size, hidden_layers, 
                  hidden_sizes, dropout_rate, activation_fn):
         super(CNN, self).__init__()
         
         conv_layers = []
-        in_channels = 1  # MNIST ha un solo canale (scala di grigi)
+        in_channels = 1  # MNIST has one channel (grayscale)
         
-        # Creazione dei layer convoluzionali
+        # Make sure kernel_size is not too large
+        # Maximum kernel_size depends on the number of convolutional layers
+        if num_conv_layers > 1 and kernel_size > 3:
+            kernel_size = 3  # Limit kernel_size to avoid dimension issues
+        
+        # Create convolutional layers
         for i in range(num_conv_layers):
-            conv_layers.append(nn.Conv2d(in_channels, filters[i], kernel_size))
+            # Add padding=1 to maintain image dimensions
+            conv_layers.append(nn.Conv2d(in_channels, filters[i], kernel_size, padding=1))
             
-            # Funzione di attivazione
+            # Activation function
             if activation_fn == 'relu':
                 conv_layers.append(nn.ReLU())
             elif activation_fn == 'tanh':
@@ -118,26 +136,26 @@ class CNN(nn.Module):
         
         self.conv_block = nn.Sequential(*conv_layers)
         
-        # Calcolo della dimensione dopo i layer convoluzionali
-        # Per MNIST (28x28) con kernel_size=3, pool_size=2
+        # Calculate dimension after convolutional layers
+        # For MNIST (28x28) with kernel_size=3, pool_size=2 and padding=1
         size_after_conv = 28
         for i in range(num_conv_layers):
-            # Convoluzione: output = (input - kernel_size + 1)
-            size_after_conv = size_after_conv - kernel_size + 1
+            # Convolution with padding=1: output = (input - kernel_size + 2*padding + 1) = input
+            # size_after_conv remains unchanged thanks to padding
             # Max pooling: output = input / pool_size
             size_after_conv = size_after_conv // pool_size
         
-        # Dimensione input del primo layer fully connected
+        # Input dimension of the first fully connected layer
         self.flat_size = filters[-1] * (size_after_conv ** 2)
         
-        # Layer fully connected
+        # Fully connected layers
         fc_layers = [nn.Flatten()]
         input_size = self.flat_size
         
         for i in range(hidden_layers):
             fc_layers.append(nn.Linear(input_size, hidden_sizes[i]))
             
-            # Funzione di attivazione
+            # Activation function
             if activation_fn == 'relu':
                 fc_layers.append(nn.ReLU())
             elif activation_fn == 'tanh':
@@ -161,14 +179,22 @@ class CNN(nn.Module):
         x = self.fc_block(x)
         return x
 
-# Funzione di addestramento
-def train_model(model, train_loader, val_loader, optimizer, criterion, scheduler=None, num_epochs=10):
+# Training function with early stopping
+def train_model(model, train_loader, val_loader, optimizer, criterion, scheduler=None, num_epochs=10, patience=5):
     model = model.to(device)
     best_val_acc = 0.0
     best_model_weights = None
     history = {'train_loss': [], 'train_acc': [], 'val_loss': [], 'val_acc': []}
     
+    # Parameters for early stopping
+    counter = 0
+    early_stop = False
+    
     for epoch in range(num_epochs):
+        if early_stop:
+            print(f"Early stopping activated at epoch {epoch}")
+            break
+            
         model.train()
         running_loss = 0.0
         correct = 0
@@ -194,15 +220,10 @@ def train_model(model, train_loader, val_loader, optimizer, criterion, scheduler
         train_loss = running_loss / total
         train_acc = correct / total
         
-        # Valutazione sul validation set
+        # Evaluation on validation set
         val_loss, val_acc = evaluate_model(model, val_loader, criterion)
         
-        # Salvataggio del miglior modello
-        if val_acc > best_val_acc:
-            best_val_acc = val_acc
-            best_model_weights = model.state_dict().copy()
-        
-        # Aggiornamento della history
+        # Update history
         history['train_loss'].append(train_loss)
         history['train_acc'].append(train_acc)
         history['val_loss'].append(val_loss)
@@ -211,12 +232,25 @@ def train_model(model, train_loader, val_loader, optimizer, criterion, scheduler
         print(f'Epoch {epoch+1}/{num_epochs} | '
               f'Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.4f} | '
               f'Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f}')
+        
+        # Save best model
+        if val_acc > best_val_acc:
+            best_val_acc = val_acc
+            best_model_weights = model.state_dict().copy()
+            counter = 0  # Reset early stopping counter
+        else:
+            counter += 1  # Increment counter
+            
+        # Early stopping
+        if counter >= patience:
+            print(f"No improvement for {patience} consecutive epochs. Early stopping.")
+            early_stop = True
     
-    # Caricamento dei pesi del miglior modello
+    # Load best model weights
     model.load_state_dict(best_model_weights)
     return model, history
 
-# Funzione di valutazione
+# Evaluation function
 def evaluate_model(model, data_loader, criterion):
     model.eval()
     running_loss = 0.0
@@ -239,7 +273,7 @@ def evaluate_model(model, data_loader, criterion):
     
     return loss, accuracy
 
-# Funzione per testare il modello e ottenere il report di classificazione
+# Function to test the model and get classification report
 def test_model(model, test_loader):
     model.eval()
     all_preds = []
@@ -254,51 +288,64 @@ def test_model(model, test_loader):
             all_preds.extend(predicted.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
     
-    # Matrice di confusione
+    # Confusion matrix
     cm = confusion_matrix(all_labels, all_preds)
     
-    # Report di classificazione
+    # Classification report
     report = classification_report(all_labels, all_preds, digits=4)
     
-    # Accuratezza
+    # Accuracy
     accuracy = np.mean(np.array(all_preds) == np.array(all_labels))
     
     return accuracy, cm, report
 
-# Plot della matrice di confusione
-def plot_confusion_matrix(cm, title='Matrice di Confusione'):
+# Plot confusion matrix
+def plot_confusion_matrix(cm, title='Confusion Matrix', model_type=None):
     plt.figure(figsize=(10, 8))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False)
     plt.title(title)
-    plt.xlabel('Predetto')
-    plt.ylabel('Reale')
-    plt.show()
-
-# Plot della history di addestramento
-def plot_training_history(history, title='Training History'):
-    plt.figure(figsize=(12, 5))
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
     
-    plt.subplot(1, 2, 1)
+    # Save the plot to the images directory with timestamp
+    filename = f"{image_dir}/{model_type}_confusion_matrix.png"
+    plt.savefig(filename)
+    print(f"Saved confusion matrix to {filename}")
+    plt.close()
+# Plot training history
+def plot_training_history(history, title='Training History', model_type=None):
+    plt.figure(figsize=(12, 10))
+    
+    # Plot Loss
+    plt.subplot(2, 1, 1)
     plt.plot(history['train_loss'], label='Train Loss')
     plt.plot(history['val_loss'], label='Validation Loss')
-    plt.title('Loss')
+    plt.title(f'{model_type} Loss')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
+    plt.grid(True, linestyle='--', alpha=0.7)
     
-    plt.subplot(1, 2, 2)
+    # Plot Accuracy
+    plt.subplot(2, 1, 2)
     plt.plot(history['train_acc'], label='Train Accuracy')
     plt.plot(history['val_acc'], label='Validation Accuracy')
-    plt.title('Accuracy')
+    plt.title(f'{model_type} Accuracy')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.legend()
+    plt.grid(True, linestyle='--', alpha=0.7)
     
     plt.suptitle(title)
     plt.tight_layout()
-    plt.show()
+    
+    # Save the plot to the images directory with timestamp
+    filename = f"{image_dir}/{model_type}_training_history.png"
+    plt.savefig(filename)
+    print(f"Saved training history plot to {filename}")
+    plt.close()
 
-# Implementazione della Random Search
+# Random Search implementation
 class RandomSearch:
     def __init__(self, model_type, param_space, num_trials=10, num_epochs=10):
         self.model_type = model_type
@@ -317,16 +364,21 @@ class RandomSearch:
                     params[param_name] = random.randint(param_range[0], param_range[1])
                 else:
                     params[param_name] = random.uniform(param_range[0], param_range[1])
+        
+        # Remove weight_decay if optimizer is RProp since it doesn't support it
+        if params.get('optimizer') == 'rprop' and 'weight_decay' in params:
+            params['weight_decay'] = 0
+            
         return params
     
     def create_model(self, params):
         if self.model_type == 'MLP':
-            # Per MLP
+            # For MLP
             hidden_layers = params['hidden_layers']
             hidden_sizes = [params['hidden_size']] * hidden_layers
             return MLP(hidden_layers, hidden_sizes, params['dropout_rate'], params['activation_fn'])
         elif self.model_type == 'CNN':
-            # Per CNN
+            # For CNN
             num_conv_layers = params['num_conv_layers']
             filters = [params['filters']] * num_conv_layers
             hidden_layers = params['hidden_layers']
@@ -338,148 +390,178 @@ class RandomSearch:
         if params['optimizer'] == 'adam':
             return optim.Adam(model.parameters(), lr=params['learning_rate'], 
                              weight_decay=params.get('weight_decay', 0))
-        elif params['optimizer'] == 'sgd':
-            return optim.SGD(model.parameters(), lr=params['learning_rate'], 
-                            momentum=params.get('momentum', 0), 
-                            weight_decay=params.get('weight_decay', 0))
+        elif params['optimizer'] == 'rprop':  # Added RProp as requested in the project
+            # Note: Rprop doesn't support weight_decay parameter
+            return optim.Rprop(model.parameters(), lr=params['learning_rate'])
     
     def search(self, train_loader, val_loader):
         criterion = nn.CrossEntropyLoss()
         best_val_acc = 0.0
         best_params = None
         best_model = None
+        best_history = None
         
         for i in range(self.num_trials):
             params = self.sample_params()
             print(f"\nTrial {i+1}/{self.num_trials}")
             print(f"Parameters: {params}")
             
-            # Creazione del modello e dell'ottimizzatore
+            # Create model and optimizer
             model = self.create_model(params)
             optimizer = self.create_optimizer(model, params)
             
-            # Addestramento del modello
+            # Train model with early stopping
             model, history = train_model(model, train_loader, val_loader, optimizer, criterion, 
-                                         num_epochs=self.num_epochs)
+                                         num_epochs=self.num_epochs, patience=20)  # Patience = 3 epochs
             
-            # Valutazione sul validation set
+            # Evaluate on validation set
             val_loss, val_acc = evaluate_model(model, val_loader, criterion)
             
-            # Registrazione dei risultati
+            # Record results
             self.results.append({
                 'params': params,
                 'val_loss': val_loss,
-                'val_acc': val_acc
+                'val_acc': val_acc,
+                'history': history
             })
             
             print(f"Validation Accuracy: {val_acc:.4f}")
             
-            # Aggiornamento del miglior modello
+            # Update best model
             if val_acc > best_val_acc:
                 best_val_acc = val_acc
                 best_params = params
                 best_model = model
+                best_history = history
+                
+                # Save loss and accuracy plots for the best model so far
+                plot_training_history(history, title=f'Best {self.model_type} Training History (Trial {i+1})', model_type=self.model_type)
+        
+        # Plot error curves for the best model
+        plot_training_history(best_history, title=f'Best {self.model_type} Final Training History', model_type=self.model_type)
         
         return best_model, best_params, self.results
 
-# Spazio di ricerca per MLP
+# Parameter search space for MLP
 mlp_param_space = {
-    'hidden_layers': (1, 4),           # Numero di layer nascosti
-    'hidden_size': [64, 128, 256, 512], # Dimensione dei layer nascosti
-    'dropout_rate': (0.0, 0.5),        # Tasso di dropout
+    'hidden_layers': (1, 4),           # Number of hidden layers
+    'hidden_size': [64, 128, 256, 512], # Size of hidden layers
+    'dropout_rate': (0.0, 0.5),        # Dropout rate
     'learning_rate': (0.0001, 0.01),   # Learning rate
-    'optimizer': ['adam'],             # Ottimizzatore (scegliamo ADAM come da requisiti)
-    'activation_fn': ['relu', 'tanh', 'leaky_relu'], # Funzione di attivazione
-    'weight_decay': (0.0, 0.001)       # Regolarizzazione L2
+    'optimizer': ['adam', 'rprop'],    # Optimizer (ADAM or RProp as requested)
+    'activation_fn': ['relu', 'tanh', 'leaky_relu'], # Activation function
+    'weight_decay': (0.0, 0.001)       # L2 regularization
 }
 
-# Spazio di ricerca per CNN
+# Parameter search space for CNN
 cnn_param_space = {
-    'num_conv_layers': (1, 3),          # Numero di layer convoluzionali
-    'filters': [16, 32, 64, 128],       # Numero di filtri
-    'kernel_size': [3, 5],              # Dimensione del kernel
-    'pool_size': [2],                   # Dimensione del pool
-    'hidden_layers': (0, 2),            # Numero di layer fully connected
-    'hidden_size': [64, 128, 256, 512], # Dimensione dei layer fully connected
-    'dropout_rate': (0.0, 0.5),         # Tasso di dropout
+    'num_conv_layers': (1, 3),          # Number of convolutional layers
+    'filters': [16, 32, 64, 128],       # Number of filters
+    'kernel_size': [3],                 # Kernel size (only 3 to avoid errors)
+    'pool_size': [2],                   # Pool size
+    'hidden_layers': (0, 2),            # Number of fully connected layers
+    'hidden_size': [64, 128, 256, 512], # Size of fully connected layers
+    'dropout_rate': (0.0, 0.5),         # Dropout rate
     'learning_rate': (0.0001, 0.01),    # Learning rate
-    'optimizer': ['adam'],              # Ottimizzatore (scegliamo ADAM come da requisiti)
-    'activation_fn': ['relu', 'tanh', 'leaky_relu'], # Funzione di attivazione
-    'weight_decay': (0.0, 0.001)        # Regolarizzazione L2
+    'optimizer': ['adam', 'rprop'],     # Optimizer (ADAM or RProp as requested)
+    'activation_fn': ['relu', 'tanh', 'leaky_relu'], # Activation function
+    'weight_decay': (0.0, 0.001)        # L2 regularization
 }
 
-# Numero di prove per la random search
-NUM_TRIALS = 10
-# Numero di epoche per l'addestramento di ogni modello
-NUM_EPOCHS = 10
+# Number of trials for random search
+NUM_TRIALS = 1  # Increased for better exploration
+# Number of epochs for training each model
+NUM_EPOCHS = 100
 
-# Esecuzione della random search per MLP
-print("\n===== Random Search per MLP =====")
+# Run random search for MLP
+print("\n===== Random Search for MLP =====")
 mlp_random_search = RandomSearch('MLP', mlp_param_space, num_trials=NUM_TRIALS, num_epochs=NUM_EPOCHS)
 best_mlp, best_mlp_params, mlp_results = mlp_random_search.search(train_loader, val_loader)
 
-# Esecuzione della random search per CNN
-print("\n===== Random Search per CNN =====")
+# Run random search for CNN
+print("\n===== Random Search for CNN =====")
 cnn_random_search = RandomSearch('CNN', cnn_param_space, num_trials=NUM_TRIALS, num_epochs=NUM_EPOCHS)
 best_cnn, best_cnn_params, cnn_results = cnn_random_search.search(train_loader, val_loader)
 
-# Test del miglior modello MLP
-print("\n===== Valutazione del miglior MLP sul Test Set =====")
+# Test the best MLP model
+print("\n===== Evaluation of the best MLP on Test Set =====")
 mlp_accuracy, mlp_cm, mlp_report = test_model(best_mlp, test_loader)
 print(f"MLP Test Accuracy: {mlp_accuracy:.4f}")
 print("MLP Classification Report:")
 print(mlp_report)
-plot_confusion_matrix(mlp_cm, title='Matrice di Confusione - MLP')
+plot_confusion_matrix(mlp_cm, title='Confusion Matrix - MLP', model_type="MLP")
+plt.savefig('mlp_confusion_matrix.png')
+plt.close()
 
-# Test del miglior modello CNN
-print("\n===== Valutazione del miglior CNN sul Test Set =====")
+# Test the best CNN model
+print("\n===== Evaluation of the best CNN on Test Set =====")
 cnn_accuracy, cnn_cm, cnn_report = test_model(best_cnn, test_loader)
 print(f"CNN Test Accuracy: {cnn_accuracy:.4f}")
 print("CNN Classification Report:")
 print(cnn_report)
-plot_confusion_matrix(cnn_cm, title='Matrice di Confusione - CNN')
+plot_confusion_matrix(cnn_cm, title='Confusion Matrix - CNN', model_type="CNN")
+plt.savefig('cnn_confusion_matrix.png')
+plt.close()
 
-# Confronto dei risultati
-print("\n===== Confronto dei risultati =====")
+# Compare results
+print("\n===== Results Comparison =====")
 print(f"MLP Best Parameters: {best_mlp_params}")
 print(f"CNN Best Parameters: {best_cnn_params}")
 print(f"MLP Test Accuracy: {mlp_accuracy:.4f}")
 print(f"CNN Test Accuracy: {cnn_accuracy:.4f}")
 
-# Plot dei risultati della random search
-def plot_random_search_results(results, title):
-    # Ordina i risultati per accuratezza di validazione
+# Plot random search results
+def plot_random_search_results(results, title, model_type=None):
+    # Sort results by validation accuracy
     sorted_results = sorted(results, key=lambda x: x['val_acc'], reverse=True)
     
     acc_values = [r['val_acc'] for r in sorted_results]
     trial_indices = range(1, len(sorted_results) + 1)
     
     plt.figure(figsize=(10, 6))
-    plt.bar(trial_indices, acc_values)
+    bars = plt.bar(trial_indices, acc_values)
     plt.title(title)
-    plt.xlabel('Trial (ordinati per accuratezza)')
+    plt.xlabel('Trial (sorted by accuracy)')
     plt.ylabel('Validation Accuracy')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    # Add values above bars
+    for i, bar in enumerate(bars):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.01,
+                f'{acc_values[i]:.4f}', ha='center', va='bottom')
+    
     plt.tight_layout()
-    plt.show()
+    
+    # Save the plot to the images directory with timestamp
+    filename = f"{image_dir}/{model_type}_random_search_results.png"
+    plt.savefig(filename)
+    print(f"Saved random search results plot to {filename}")
+    plt.close()
 
-plot_random_search_results(mlp_results, 'MLP Random Search Results')
-plot_random_search_results(cnn_results, 'CNN Random Search Results')
+plot_random_search_results(mlp_results, 'MLP Random Search Results', model_type="MLP")
+plt.savefig('mlp_random_search_results.png')
+plt.close()
 
-# Confronto finale
+plot_random_search_results(cnn_results, 'CNN Random Search Results', model_type="CNN")
+plt.savefig('cnn_random_search_results.png')
+plt.close()
+
+# Final comparison
 labels = ['MLP', 'CNN']
 test_accuracies = [mlp_accuracy, cnn_accuracy]
 
 plt.figure(figsize=(8, 6))
 plt.bar(labels, test_accuracies)
-plt.title('Confronto delle Accuratezze sul Test Set')
+plt.title('Test Set Accuracy Comparison')
 plt.ylabel('Accuracy')
 plt.ylim(0, 1)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-# Aggiungi i valori sopra le barre
+# Add values above bars
 for i, v in enumerate(test_accuracies):
     plt.text(i, v + 0.01, f'{v:.4f}', ha='center')
 
 plt.tight_layout()
-plt.show()
+plt.savefig('comparison_results.png')
+plt.close()
