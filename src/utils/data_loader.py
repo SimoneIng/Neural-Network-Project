@@ -22,6 +22,11 @@ def load_mnist_data(
     full_dataset = datasets.MNIST(root="./data", train=True, download=True, transform=transform)
     test_dataset = datasets.MNIST(root="./data", train=False, download=True, transform=transform)
 
+    # # get full dataset
+    # training_size = int(len(full_dataset) * (3 / 4))
+    # validation_size = int(len(full_dataset) * (1 / 4))
+    # test_size = len(test_dataset)
+
     # Select a subset of examples from the full training dataset
     subset_indices = torch.randperm(len(full_dataset))[: training_size + validation_size]
     dataset_subset = torch.utils.data.Subset(full_dataset, subset_indices)

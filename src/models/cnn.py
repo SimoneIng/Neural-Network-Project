@@ -9,7 +9,7 @@ class CNN(nn.Module):
         filters: list,
         kernel_size: int,
         pool_size: int,
-        hidden_layers,
+        hidden_layers: int,
         hidden_sizes: list,
         activation_fn: str,
     ):

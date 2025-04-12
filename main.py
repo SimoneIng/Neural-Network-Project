@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 # Import from src
 from src.models.model_type import ModelType
+from src.utils.save import save_model
 from src.utils.data_loader import load_mnist_data
 from src.utils.evaluate import test_model
 from src.utils.visualization import (
@@ -38,7 +39,7 @@ TRAINING_SIZE = 8000
 VALIDATION_SIZE = 2000
 TEST_SIZE = 2500
 BATCH_SIZE = 64
-NUM_TRIALS = 1  # Number of trials for random search
+NUM_TRIALS = 1 # Number of trials for random search
 
 # Check GPU availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -54,11 +55,13 @@ def main():
     print("\n===== Random Search for MLP =====")
     mlp_random_search = RandomSearch(ModelType.MLP, mlp_param_space, device, num_trials=NUM_TRIALS)
     best_mlp, best_mlp_params, mlp_results = mlp_random_search.search(train_loader, val_loader)
+    save_model(best_mlp)
 
     # Run random search for CNN
     print("\n===== Random Search for CNN =====")
     cnn_random_search = RandomSearch(ModelType.CNN, cnn_param_space, device, num_trials=NUM_TRIALS)
     best_cnn, best_cnn_params, cnn_results = cnn_random_search.search(train_loader, val_loader)
+    save_model(best_cnn)
 
     # Test the best MLP model
     print("\n===== Evaluation of the best MLP on Test Set =====")

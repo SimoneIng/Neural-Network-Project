@@ -86,7 +86,7 @@ def train_model(
 
 
 # Evaluation function
-def evaluate_model(model, data_loader, criterion, device):
+def evaluate_model(model: CNN | MLP, data_loader: DataLoader, criterion, device):
     model.eval()
     running_loss = 0.0
     correct = 0

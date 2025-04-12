@@ -118,12 +118,16 @@ class RandomSearch:
 
                 # Save loss and accuracy plots for the best model so far
                 plot_training_history(
-                    history, title=f"Best {self.model_type} Training History (Trial {i+1})", model_type=self.model_type
+                    history,
+                    title=f"Best {self.model_type} Training History (Trial {i+1})",
+                    model_type=self.model_type,
                 )
 
         # Plot error curves for the best model
         plot_training_history(
-            best_history, title=f"Best {self.model_type} Final Training History", model_type=self.model_type
+            best_history,
+            title=f"Best {self.model_type} Final Training History",
+            model_type=self.model_type,
         )
 
         return best_model, best_params, self.results

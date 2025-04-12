@@ -5,7 +5,7 @@ import torch.nn as nn
 class MLP(nn.Module):
     def __init__(
         self,
-        hidden_layers,
+        hidden_layers: int,
         hidden_sizes: list,
         activation_fn: str,
     ):
