@@ -15,6 +15,12 @@ from src.utils.visualization import (
     plot_training_history,
     plot_random_search_results,
     plot_epoch_comparison,
+    plot_hyperparameter_impact,
+    plot_decision_boundary,
+    plot_tsne_clusters,
+    plot_feature_maps,
+    plot_prediction_scatter,
+    plot_confidence_scatter,
 )
 from src.optimization.random_search import RandomSearch
 
@@ -39,7 +45,7 @@ TRAINING_SIZE = 8000
 VALIDATION_SIZE = 2000
 TEST_SIZE = 2500
 BATCH_SIZE = 64
-NUM_TRIALS = 1 # Number of trials for random search
+NUM_TRIALS = 1  # Number of trials for random search
 
 # Check GPU availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -110,8 +116,146 @@ def main():
     )
 
     # Plot epoch comparisons
-    plot_epoch_comparison(mlp_results, ModelType.MLP)
-    plot_epoch_comparison(cnn_results, ModelType.CNN)
+    plot_epoch_comparison(mlp_results, model_type=ModelType.MLP, save_dir=image_dir)
+    plot_epoch_comparison(cnn_results, model_type=ModelType.CNN, save_dir=image_dir)
+
+    # Plot hyperparameter impact for various parameters
+    for param in ["learning_rate", "hidden_size", "dropout_rate"]:
+        if param in mlp_param_space:
+            plot_hyperparameter_impact(mlp_results, param_name=param, model_type=ModelType.MLP, save_dir=image_dir)
+
+    for param in ["learning_rate", "num_filters", "kernel_size", "dropout_rate"]:
+        if param in cnn_param_space:
+            plot_hyperparameter_impact(cnn_results, param_name=param, model_type=ModelType.CNN, save_dir=image_dir)
+
+    # Get numpy arrays from test data for visualization
+    X_test_np = []
+    y_test_np = []
+
+    # Extract a batch of test data
+    test_batch_size = min(1000, TEST_SIZE)  # Limit to 1000 samples for visualization
+    test_subset = torch.utils.data.Subset(test_loader.dataset, indices=range(test_batch_size))
+    test_subset_loader = torch.utils.data.DataLoader(test_subset, batch_size=test_batch_size)
+
+    for images, labels in test_subset_loader:
+        # Convert to numpy for visualization
+        if images.dim() == 4:  # [batch, channels, height, width]
+            images_np = images.numpy()
+        else:  # [batch, flattened]
+            images_np = images.reshape(-1, 28, 28).numpy()
+
+        X_test_np.append(images_np)
+        y_test_np.append(labels.numpy())
+
+    X_test_np = np.concatenate(X_test_np)
+    y_test_np = np.concatenate(y_test_np)
+
+    # Visualize decision boundaries
+    print("\n===== Visualizing Decision Boundaries =====")
+
+    # MLP decision boundaries
+    plot_decision_boundary(
+        model=best_mlp,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.MLP,
+        reduction_method="tsne",
+        title="MLP Decision Boundaries",
+        save_dir=image_dir,
+        device=device,
+    )
+
+    # CNN decision boundaries
+    plot_decision_boundary(
+        model=best_cnn,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.CNN,
+        reduction_method="tsne",
+        title="CNN Decision Boundaries",
+        save_dir=image_dir,
+        device=device,
+    )
+
+    # Visualize t-SNE clusters
+    plot_tsne_clusters(
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.MLP,  # Use MLP type for file naming
+        title="t-SNE Visualization of MNIST Test Data",
+        save_dir=image_dir,
+    )
+
+    # Visualize CNN feature maps
+    if len(X_test_np) > 0:
+        # Select a few sample images for feature map visualization
+        for digit in range(min(3, len(X_test_np))):  # Visualize first 3 samples
+            sample_image = X_test_np[digit]
+            digit_label = y_test_np[digit]
+
+            plot_feature_maps(
+                model=best_cnn,
+                sample_image=sample_image,
+                model_type=ModelType.CNN,
+                layer_idx=0,  # First convolutional layer
+                title=f"CNN Feature Maps for Digit {digit_label}",
+                save_dir=image_dir,
+                device=device,
+            )
+
+    # Visualize prediction scatter plots
+    print("\n===== Creating Prediction Scatter Plots =====")
+
+    # MLP prediction scatter
+    plot_prediction_scatter(
+        model=best_mlp,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.MLP,
+        reduction_method="tsne",
+        title="MLP Predictions on MNIST",
+        save_dir=image_dir,
+        device=device,
+    )
+
+    # CNN prediction scatter
+    plot_prediction_scatter(
+        model=best_cnn,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.CNN,
+        reduction_method="tsne",
+        title="CNN Predictions on MNIST",
+        save_dir=image_dir,
+        device=device,
+    )
+
+    # Visualize confidence scatter plots
+    print("\n===== Creating Confidence Scatter Plots =====")
+
+    # MLP confidence scatter
+    plot_confidence_scatter(
+        model=best_mlp,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.MLP,
+        reduction_method="tsne",
+        title="MLP Prediction Confidence",
+        save_dir=image_dir,
+        device=device,
+    )
+
+    # CNN confidence scatter
+    plot_confidence_scatter(
+        model=best_cnn,
+        X_test=X_test_np,
+        y_test=y_test_np,
+        model_type=ModelType.CNN,
+        reduction_method="tsne",
+        title="CNN Prediction Confidence",
+        save_dir=image_dir,
+        device=device,
+    )
 
     # Final comparison
     labels = [ModelType.MLP.__str__(), ModelType.CNN.__str__()]
@@ -131,6 +275,9 @@ def main():
     plt.tight_layout()
     plt.savefig(f"{image_dir}/comparison_results.png")
     plt.close()
+
+    print("\n===== Visualization Complete =====")
+    print(f"All visualizations saved to: {image_dir}")
 
 
 if __name__ == "__main__":
