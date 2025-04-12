@@ -29,7 +29,9 @@ class RandomSearch:
     def sample_params(self):
         params = {}
         for param_name, param_range in self.param_space.items():
-            if isinstance(param_range, list):
+            if param_name == "num_conv":
+                params["num_conv"] = param_range
+            elif isinstance(param_range, list):
                 params[param_name] = random.choice(param_range)
             elif isinstance(param_range, tuple) and len(param_range) == 2:
                 if isinstance(param_range[0], int):
@@ -52,6 +54,7 @@ class RandomSearch:
                 hidden_sizes = [params["hidden_size"]] * hidden_layers
                 return CNN(
                     num_conv_layers,
+                    params["num_conv"],
                     filters,
                     params["kernel_size"],
                     params["pool_size"],

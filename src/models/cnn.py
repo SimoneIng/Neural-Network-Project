@@ -1,3 +1,4 @@
+import random
 import torch.nn as nn
 
 
@@ -6,6 +7,7 @@ class CNN(nn.Module):
     def __init__(
         self,
         num_conv_layers: int,
+        num_conv: list[int],
         filters: list,
         kernel_size: int,
         pool_size: int,
@@ -23,24 +25,32 @@ class CNN(nn.Module):
         if num_conv_layers > 1 and kernel_size > 3:
             kernel_size = 3  # Limit kernel_size to avoid dimension issues
 
+        filter = filters[0]
+
         # Create convolutional layers
         for i in range(num_conv_layers):
-            # Add padding=1 to maintain image dimensions
-            conv_layers.append(nn.Conv2d(in_channels, filters[i], kernel_size, padding=1))
+            if i != 0:
+                filter = filter * 2
 
-            # Activation function
-            match activation_fn:
-                case "relu":
-                    conv_layers.append(nn.ReLU())
-                case "softmax":
-                    conv_layers.append(nn.Softmax(dim=1))
-                case "sigmoid":
-                    conv_layers.append(nn.Sigmoid())
+            conv = random.choice(num_conv)
+            print(f"Layer {i}: {conv} convoluzioni - filter {filter}")
+
+            for j in range(conv):
+                conv_layers.append(nn.Conv2d(in_channels, filter, kernel_size, padding=1))
+
+                # Activation function
+                match activation_fn:
+                    case "relu":
+                        conv_layers.append(nn.ReLU())
+                    case "softmax":
+                        conv_layers.append(nn.Softmax(dim=1))
+                    case "sigmoid":
+                        conv_layers.append(nn.Sigmoid())
+
+                in_channels = filter
 
             # Max pooling
             conv_layers.append(nn.MaxPool2d(pool_size))
-
-            in_channels = filters[i]
 
         self.conv_block = nn.Sequential(*conv_layers)
 
@@ -54,7 +64,7 @@ class CNN(nn.Module):
             size_after_conv = size_after_conv // pool_size
 
         # Input dimension of the first fully connected layer
-        self.flat_size = filters[-1] * (size_after_conv**2)
+        self.flat_size = filter * (size_after_conv**2)
 
         # Fully connected layers
         fc_layers = [nn.Flatten()]

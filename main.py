@@ -44,8 +44,8 @@ os.makedirs(image_dir, exist_ok=True)
 TRAINING_SIZE = 8000
 VALIDATION_SIZE = 2000
 TEST_SIZE = 2500
-BATCH_SIZE = 64
-NUM_TRIALS = 1  # Number of trials for random search
+BATCH_SIZE = 32
+NUM_TRIALS = 5  # Number of trials for random search
 
 # Check GPU availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -57,17 +57,19 @@ def main():
     # Load and prepare data
     train_loader, val_loader, test_loader = load_mnist_data(TRAINING_SIZE, VALIDATION_SIZE, TEST_SIZE, BATCH_SIZE)
 
-    # Run random search for MLP
-    print("\n===== Random Search for MLP =====")
-    mlp_random_search = RandomSearch(ModelType.MLP, mlp_param_space, device, num_trials=NUM_TRIALS)
-    best_mlp, best_mlp_params, mlp_results = mlp_random_search.search(train_loader, val_loader)
-    save_model(best_mlp)
-
     # Run random search for CNN
     print("\n===== Random Search for CNN =====")
     cnn_random_search = RandomSearch(ModelType.CNN, cnn_param_space, device, num_trials=NUM_TRIALS)
     best_cnn, best_cnn_params, cnn_results = cnn_random_search.search(train_loader, val_loader)
     save_model(best_cnn)
+
+    return 
+
+    # Run random search for MLP
+    print("\n===== Random Search for MLP =====")
+    mlp_random_search = RandomSearch(ModelType.MLP, mlp_param_space, device, num_trials=NUM_TRIALS)
+    best_mlp, best_mlp_params, mlp_results = mlp_random_search.search(train_loader, val_loader)
+    save_model(best_mlp)
 
     # Test the best MLP model
     print("\n===== Evaluation of the best MLP on Test Set =====")
