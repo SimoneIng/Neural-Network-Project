@@ -4,6 +4,12 @@ import torch
 from torchvision import datasets, transforms
 from src.utils.inference import inference, load_model
 
+transform = transforms.Compose([
+    # transforms.Resize((28, 28)),  # Ridimensiona a 28x28
+    transforms.ToTensor(),  # Converti in tensore
+    transforms.Normalize((0.1307,), (0.3081,))  # Applica la stessa normalizzazione di MNIST
+])
+
 
 def get_mnist_digit(digit, num_samples=1, return_first=True):
     """
@@ -19,7 +25,7 @@ def get_mnist_digit(digit, num_samples=1, return_first=True):
         Un tensore di forma [1, 1, 28, 28] se return_first=True
     """
     # Carica il dataset MNIST
-    mnist_dataset = datasets.MNIST(root="./data", train=False, download=True, transform=transforms.ToTensor())
+    mnist_dataset = datasets.MNIST(root="./data", train=False, download=True, transform=transform)
 
     # Trova gli indici di tutte le immagini che rappresentano il numero richiesto
     digit_indices = [i for i, (_, label) in enumerate(mnist_dataset) if label == digit]
@@ -65,39 +71,38 @@ def print_mnist_digit(image_tensor: torch.Tensor):
         print("".join(chars[min(9, max(0, val))] for val in row))
 
 
-device = torch.device("cpu")
+device = torch.device("cuda")
 
 print(f"Device utilizzato: {device}")
 
 start_time = time.time()
-loaded_model = load_model("./src/experiments/results/mlp_model.pt", device)
+loaded_model = load_model("./src/experiments/results/cnn_model.pt", device)
 print(f"Caricamento modello: {time.time() - start_time:.4f} secondi")
 
-test_image = get_mnist_digit(8, return_first=True) 
+# test_image = get_mnist_digit(8, return_first=True) 
+# prediction = inference(loaded_model, test_image.to(device))
 
-prediction = inference(loaded_model, test_image.to(device))
+# print(prediction.shape)
+# print(prediction.item())
 
-print(prediction.shape)
-print(prediction.item())
+for i in range(10):
+    digit = i
+    num_samples = 10000
+    correct = 0
 
-# for i in range(10):
-#     digit = i
-#     num_samples = 10000
-#     correct = 0
+    print(f"DIGIT: {digit}")
+    start_time = time.time()
+    test_images = get_mnist_digit(digit, num_samples=num_samples, return_first=False)  # Esempio di un'immagine MNIST
+    print(f"Caricamento data set: {time.time() - start_time:.4f} secondi")
 
-#     print(f"DIGIT: {digit}")
-#     start_time = time.time()
-#     test_images = get_mnist_digit(digit, num_samples=num_samples, return_first=False)  # Esempio di un'immagine MNIST
-#     print(f"Caricamento data set: {time.time() - start_time:.4f} secondi")
+    start_time = time.time()
+    for i in range(test_images.shape[0]):
+        # print_mnist_digit(test_images[i])
+        # print("#################")
+        prediction = inference(loaded_model, test_images[i].unsqueeze(0).to(device))
+        if prediction.item() == digit:
+            correct += 1
+    print(f"Inferenza: {time.time() - start_time:.4f} secondi")
 
-#     start_time = time.time()
-#     for i in range(test_images.shape[0]):
-#         # print_mnist_digit(test_images[i])
-#         # print("#################")
-#         prediction = inference(loaded_model, test_images[i].unsqueeze(0).to(device))
-#         if prediction.item() == digit:
-#             correct += 1
-#     print(f"Inferenza: {time.time() - start_time:.4f} secondi")
-
-#     print(f"{correct}/{test_images.shape[0]}")
-#     print("\n")
+    print(f"{correct}/{test_images.shape[0]}")
+    print("\n")
