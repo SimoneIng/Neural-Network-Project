@@ -7,7 +7,6 @@ def load_mnist_data(
     training_size: int,
     validation_size: int,
     test_size: int,
-    batch_size: int,
 ) -> tuple[DataLoader, DataLoader, DataLoader]:
 
     # Transform for normalization
@@ -38,13 +37,8 @@ def load_mnist_data(
     test_indices = torch.randperm(len(test_dataset))[:test_size]
     test_subset = torch.utils.data.Subset(test_dataset, test_indices)
 
-    # Create dataloaders
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-    test_loader = DataLoader(test_subset, batch_size=batch_size, shuffle=False)
-
     print(f"Training set size: {len(train_dataset)}")
     print(f"Validation set size: {len(val_dataset)}")
     print(f"Test set size: {len(test_subset)}")
 
-    return train_loader, val_loader, test_loader
+    return train_dataset, val_dataset, test_subset

@@ -10,6 +10,8 @@ from src.models.model_type import ModelType
 from src.utils.train import evaluate_model, train_model
 from src.utils.visualization import plot_training_history
 
+from src.utils.constants import TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
+from src.utils.dataset import load_mnist_data
 
 # Random Search implementation
 class RandomSearch:
@@ -25,6 +27,7 @@ class RandomSearch:
         self.num_trials = num_trials
         self.device = device
         self.results = []
+        self.load_datasets()
 
     def sample_params(self):
         params = {}
@@ -40,6 +43,12 @@ class RandomSearch:
                     params[param_name] = random.uniform(param_range[0], param_range[1])
 
         return params
+    
+    def load_datasets(self):
+        train_ds, val_ds, test_ds = load_mnist_data(TRAINING_SIZE, VALIDATION_SIZE, TEST_SIZE)
+        self.train_ds = train_ds
+        self.val_ds = val_ds 
+        self.test_ds = test_ds
 
     def create_model(self, params: dict):
         match self.model_type:
@@ -70,7 +79,8 @@ class RandomSearch:
             case "rprop":
                 return optim.Rprop(model.parameters(), lr=params["learning_rate"])
 
-    def search(self, train_loader: DataLoader, val_loader: DataLoader):
+    def search(self):
+        
         criterion = nn.CrossEntropyLoss()
         best_val_acc = 0.0
         best_params = None
@@ -81,7 +91,13 @@ class RandomSearch:
             params = self.sample_params()
             print(f"\nTrial {i+1}/{self.num_trials}")
             print(f"Parameters: {params}")
-
+            
+            # Create dataloaders
+            batch_size = params["batch_size"]
+            train_loader = DataLoader(self.train_ds, batch_size=batch_size, shuffle=True)
+            val_loader = DataLoader(self.val_ds, batch_size=batch_size, shuffle=False)
+            test_loader = DataLoader(self.test_ds, batch_size=batch_size, shuffle=False)
+            
             # Create model and optimizer
             model = self.create_model(params)
             optimizer = self.create_optimizer(model, params)
