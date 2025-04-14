@@ -13,6 +13,7 @@ from src.utils.visualization import plot_training_history
 from src.utils.constants import TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
 from src.utils.dataset import load_mnist_data
 
+
 # Random Search implementation
 class RandomSearch:
     def __init__(
@@ -34,20 +35,15 @@ class RandomSearch:
         for param_name, param_range in self.param_space.items():
             if param_name == "num_conv":
                 params["num_conv"] = param_range
-            elif isinstance(param_range, list):
+            else:
                 params[param_name] = random.choice(param_range)
-            elif isinstance(param_range, tuple) and len(param_range) == 2:
-                if isinstance(param_range[0], int):
-                    params[param_name] = random.randint(param_range[0], param_range[1])
-                else:
-                    params[param_name] = random.uniform(param_range[0], param_range[1])
 
         return params
-    
+
     def load_datasets(self):
         train_ds, val_ds, test_ds = load_mnist_data(TRAINING_SIZE, VALIDATION_SIZE, TEST_SIZE)
         self.train_ds = train_ds
-        self.val_ds = val_ds 
+        self.val_ds = val_ds
         self.test_ds = test_ds
 
     def create_model(self, params: dict):
@@ -80,7 +76,6 @@ class RandomSearch:
                 return optim.Rprop(model.parameters(), lr=params["learning_rate"])
 
     def search(self):
-        
         criterion = nn.CrossEntropyLoss()
         best_val_acc = 0.0
         best_params = None
@@ -91,13 +86,24 @@ class RandomSearch:
             params = self.sample_params()
             print(f"\nTrial {i+1}/{self.num_trials}")
             print(f"Parameters: {params}")
-            
+
             # Create dataloaders
             batch_size = params["batch_size"]
-            train_loader = DataLoader(self.train_ds, batch_size=batch_size, shuffle=True)
-            val_loader = DataLoader(self.val_ds, batch_size=batch_size, shuffle=False)
-            test_loader = DataLoader(self.test_ds, batch_size=batch_size, shuffle=False)
-            
+            train_loader = DataLoader(
+                self.train_ds,
+                batch_size=batch_size,
+                shuffle=True,
+                num_workers=4,
+                pin_memory=True,
+            )
+            val_loader = DataLoader(
+                self.val_ds,
+                batch_size=batch_size,
+                shuffle=False,
+                num_workers=4,
+                pin_memory=True,
+            )
+
             # Create model and optimizer
             model = self.create_model(params)
             optimizer = self.create_optimizer(model, params)

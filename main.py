@@ -1,6 +1,4 @@
 import torch
-import numpy as np
-import random
 import os
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -15,34 +13,20 @@ from src.utils.visualization import (
     plot_random_search_results,
     plot_epoch_comparison,
     plot_hyperparameter_impact,
-    plot_decision_boundary,
-    plot_tsne_clusters,
-    plot_feature_maps,
-    plot_prediction_scatter,
-    plot_confidence_scatter,
 )
 from src.optimization.random_search import RandomSearch
 
 from src.experiments.config.mlp_params import mlp_param_space
 from src.experiments.config.cnn_params import cnn_param_space
 
-from src.utils.constants import TEST_SIZE
+from src.utils.constants import NUM_TRIALS
 
-# Set seed for reproducibility
-SEED = 42
-torch.manual_seed(SEED)
-torch.cuda.manual_seed(SEED)
-np.random.seed(SEED)
-random.seed(SEED)
-torch.backends.cudnn.deterministic = True
 
 # Create image directory if it doesn't exist
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 image_dir = f"./images/{timestamp}"
 os.makedirs(image_dir, exist_ok=True)
 
-
-NUM_TRIALS = 1  # Number of trials for random search
 
 # Check GPU availability
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -122,10 +106,6 @@ def main():
     for param in ["learning_rate", "num_filters", "kernel_size", "dropout_rate"]:
         if param in cnn_param_space:
             plot_hyperparameter_impact(cnn_results, param_name=param, model_type=ModelType.CNN, save_dir=image_dir)
-
-    # Get numpy arrays from test data for visualization
-    X_test_np = []
-    y_test_np = []
 
     # Final comparison
     labels = [ModelType.MLP.__str__(), ModelType.CNN.__str__()]

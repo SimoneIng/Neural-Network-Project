@@ -20,12 +20,10 @@ class CNN(nn.Module):
         conv_layers = []
         in_channels = 1  # MNIST has one channel (grayscale)
 
-        # Make sure kernel_size is not too large
-        # Maximum kernel_size depends on the number of convolutional layers
-        if num_conv_layers > 1 and kernel_size > 3:
-            kernel_size = 3  # Limit kernel_size to avoid dimension issues
-
         filter = filters[0]
+
+        padding = 1
+        stride = 1
 
         # Create convolutional layers
         for i in range(num_conv_layers):
@@ -36,7 +34,7 @@ class CNN(nn.Module):
             print(f"Layer {i}: {conv} convoluzioni - filter {filter}")
 
             for j in range(conv):
-                conv_layers.append(nn.Conv2d(in_channels, filter, kernel_size, padding=1))
+                conv_layers.append(nn.Conv2d(in_channels, filter, kernel_size, padding=padding, stride=stride))
 
                 # Activation function
                 match activation_fn:
@@ -58,10 +56,9 @@ class CNN(nn.Module):
         # For MNIST (28x28) with kernel_size=3, pool_size=2 and padding=1
         size_after_conv = 28
         for i in range(num_conv_layers):
-            # Convolution with padding=1: output = (input - kernel_size + 2*padding + 1) = input
-            # size_after_conv remains unchanged thanks to padding
-            # Max pooling: output = input / pool_size
-            size_after_conv = size_after_conv // pool_size
+            for i in range(num_conv[0]):
+                size_after_conv = ((size_after_conv - kernel_size + 2 * padding) / stride) + 1
+            size_after_conv = int(size_after_conv / pool_size)
 
         # Input dimension of the first fully connected layer
         self.flat_size = filter * (size_after_conv**2)

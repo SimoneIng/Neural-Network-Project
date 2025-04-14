@@ -1,5 +1,5 @@
 import torch
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import Subset, random_split
 from torchvision import datasets, transforms
 
 
@@ -7,7 +7,7 @@ def load_mnist_data(
     training_size: int,
     validation_size: int,
     test_size: int,
-) -> tuple[DataLoader, DataLoader, DataLoader]:
+) -> tuple[Subset, Subset, Subset]:
 
     # Transform for normalization
     transform = transforms.Compose(

@@ -339,16 +339,14 @@ def plot_random_search_results(
     model_type: ModelType,
     save_dir="./images",
 ):
-    # Sort results by validation accuracy
-    sorted_results = sorted(results, key=lambda x: x["val_acc"], reverse=True)
 
-    acc_values = [r["val_acc"] for r in sorted_results]
-    trial_indices = range(1, len(sorted_results) + 1)
+    acc_values = [r["val_acc"] for r in results]
+    trial_indices = range(1, len(results) + 1)
 
     plt.figure(figsize=(10, 6))
     bars = plt.bar(trial_indices, acc_values)
     plt.title(title)
-    plt.xlabel("Trial (sorted by accuracy)")
+    plt.xlabel("Trial")
     plt.ylabel("Validation Accuracy")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
 
