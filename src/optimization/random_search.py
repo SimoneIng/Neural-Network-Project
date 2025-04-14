@@ -81,9 +81,13 @@ class RandomSearch:
         best_params = None
         best_model = None
         best_history = None
+        
+        trial_params = []
 
         for i in range(self.num_trials):
             params = self.sample_params()
+            trial_params.append(params)
+
             print(f"\nTrial {i+1}/{self.num_trials}")
             print(f"Parameters: {params}")
 
@@ -155,4 +159,4 @@ class RandomSearch:
             model_type=self.model_type,
         )
 
-        return best_model, best_params, self.results
+        return best_model, best_params, self.results, trial_params

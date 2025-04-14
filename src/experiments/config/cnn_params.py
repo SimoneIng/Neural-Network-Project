@@ -4,7 +4,7 @@ cnn_param_space = {
     "num_conv_layers": [1, 2, 3, 4],  # Number of convolutional layers
     "num_conv": [1, 2, 3],  # number of conv per layer
     "filters": [8, 16, 32],  # Number of filters
-    "kernel_size": [3, 5],  # Kernel size (only 3 to avoid errors)
+    "kernel_size": [3],  # Kernel size (only 3 to avoid errors)
     "pool_size": [2],  # Pool size
     "hidden_layers": [0, 1, 2],  # Number of fully connected layers
     "hidden_size": [32, 64, 128, 256],  # Size of fully connected layers

@@ -1,3 +1,4 @@
+import json
 import torch
 import os
 from datetime import datetime
@@ -11,8 +12,6 @@ from src.utils.visualization import (
     plot_confusion_matrix,
     plot_training_history,
     plot_random_search_results,
-    plot_epoch_comparison,
-    plot_hyperparameter_impact,
 )
 from src.optimization.random_search import RandomSearch
 
@@ -39,13 +38,13 @@ def main():
     # Run random search for CNN
     print("\n===== Random Search for CNN =====")
     cnn_random_search = RandomSearch(ModelType.CNN, cnn_param_space, device, num_trials=NUM_TRIALS)
-    best_cnn, best_cnn_params, cnn_results = cnn_random_search.search()
+    best_cnn, best_cnn_params, cnn_results, cnn_trials_params = cnn_random_search.search()
     save_model(best_cnn)
 
     # Run random search for MLP
     print("\n===== Random Search for MLP =====")
     mlp_random_search = RandomSearch(ModelType.MLP, mlp_param_space, device, num_trials=NUM_TRIALS)
-    best_mlp, best_mlp_params, mlp_results = mlp_random_search.search()
+    best_mlp, best_mlp_params, mlp_results, mlp_trials_params = mlp_random_search.search()
     save_model(best_mlp)
 
     # Test the best MLP model
@@ -94,18 +93,11 @@ def main():
         save_dir=image_dir,
     )
 
-    # Plot epoch comparisons
-    plot_epoch_comparison(mlp_results, model_type=ModelType.MLP, save_dir=image_dir)
-    plot_epoch_comparison(cnn_results, model_type=ModelType.CNN, save_dir=image_dir)
-
-    # Plot hyperparameter impact for various parameters
-    for param in ["learning_rate", "hidden_size", "dropout_rate"]:
-        if param in mlp_param_space:
-            plot_hyperparameter_impact(mlp_results, param_name=param, model_type=ModelType.MLP, save_dir=image_dir)
-
-    for param in ["learning_rate", "num_filters", "kernel_size", "dropout_rate"]:
-        if param in cnn_param_space:
-            plot_hyperparameter_impact(cnn_results, param_name=param, model_type=ModelType.CNN, save_dir=image_dir)
+    # save trials_params
+    with open(f"{image_dir}/mlp_trials_params.json", "w", encoding="utf-8") as file:
+        json.dump(mlp_trials_params, file, indent=4, ensure_ascii=False)
+    with open(f"{image_dir}/cnn_trials_params.json", "w", encoding="utf-8") as file:
+        json.dump(cnn_trials_params, file, indent=4, ensure_ascii=False)
 
     # Final comparison
     labels = [ModelType.MLP.__str__(), ModelType.CNN.__str__()]
