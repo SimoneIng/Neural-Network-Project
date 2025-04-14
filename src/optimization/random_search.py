@@ -81,11 +81,15 @@ class RandomSearch:
         best_params = None
         best_model = None
         best_history = None
-        
+
         trial_params = []
 
         for i in range(self.num_trials):
-            params = self.sample_params()
+            while True:
+                params = self.sample_params()
+                if params not in trial_params:
+                    break
+
             trial_params.append(params)
 
             print(f"\nTrial {i+1}/{self.num_trials}")
