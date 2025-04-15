@@ -18,13 +18,11 @@ from src.optimization.random_search import RandomSearch
 from src.experiments.config.mlp_params import mlp_param_space
 from src.experiments.config.cnn_params import cnn_param_space
 
-from src.utils.constants import NUM_TRIALS
+from src.utils.constants import IMAGE_DIR, NUM_TRIALS
 
 
 # Create image directory if it doesn't exist
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-image_dir = f"./images/{timestamp}"
-os.makedirs(image_dir, exist_ok=True)
+os.makedirs(IMAGE_DIR, exist_ok=True)
 
 
 # Check GPU availability
@@ -38,30 +36,30 @@ def main():
     # Run random search for CNN
     print("\n===== Random Search for CNN =====")
     cnn_random_search = RandomSearch(ModelType.CNN, cnn_param_space, device, num_trials=NUM_TRIALS)
-    best_cnn, best_cnn_params, cnn_results, cnn_trials_params = cnn_random_search.search()
+    best_cnn, best_cnn_params, cnn_results = cnn_random_search.search()
     save_model(best_cnn)
 
     # Run random search for MLP
     print("\n===== Random Search for MLP =====")
     mlp_random_search = RandomSearch(ModelType.MLP, mlp_param_space, device, num_trials=NUM_TRIALS)
-    best_mlp, best_mlp_params, mlp_results, mlp_trials_params = mlp_random_search.search()
+    best_mlp, best_mlp_params, mlp_results = mlp_random_search.search()
     save_model(best_mlp)
 
     # Test the best MLP model
     print("\n===== Evaluation of the best MLP on Test Set =====")
     mlp_accuracy, mlp_cm, mlp_report = test_model(best_mlp, mlp_random_search.test_ds, device)
     print(f"MLP Test Accuracy: {mlp_accuracy:.4f}")
-    print("MLP Classification Report:")
-    print(mlp_report)
-    plot_confusion_matrix(mlp_cm, title="Confusion Matrix - MLP", model_type=ModelType.MLP, save_dir=image_dir)
+    with open(f"{IMAGE_DIR}/MLP_report.json", "w", encoding="utf-8") as file:
+        json.dump(mlp_report, file, indent=4, ensure_ascii=False)
+    plot_confusion_matrix(mlp_cm, title="Confusion Matrix - MLP", model_type=ModelType.MLP, save_dir=IMAGE_DIR)
 
     # Test the best CNN model
     print("\n===== Evaluation of the best CNN on Test Set =====")
     cnn_accuracy, cnn_cm, cnn_report = test_model(best_cnn, cnn_random_search.test_ds, device)
     print(f"CNN Test Accuracy: {cnn_accuracy:.4f}")
-    print("CNN Classification Report:")
-    print(cnn_report)
-    plot_confusion_matrix(cnn_cm, title="Confusion Matrix - CNN", model_type=ModelType.CNN, save_dir=image_dir)
+    with open(f"{IMAGE_DIR}/CNN_report.json", "w", encoding="utf-8") as file:
+        json.dump(cnn_report, file, indent=4, ensure_ascii=False)
+    plot_confusion_matrix(cnn_cm, title="Confusion Matrix - CNN", model_type=ModelType.CNN, save_dir=IMAGE_DIR)
 
     # Compare results
     print("\n===== Results Comparison =====")
@@ -76,7 +74,7 @@ def main():
             history,
             title=f"Best {model_type} Training History",
             model_type=model_type,
-            save_dir=image_dir,
+            save_dir=IMAGE_DIR,
         )
 
     # Plot random search results
@@ -84,20 +82,14 @@ def main():
         mlp_results,
         title="MLP Random Search Results",
         model_type=ModelType.MLP,
-        save_dir=image_dir,
+        save_dir=IMAGE_DIR,
     )
     plot_random_search_results(
         cnn_results,
         title="CNN Random Search Results",
         model_type=ModelType.CNN,
-        save_dir=image_dir,
+        save_dir=IMAGE_DIR,
     )
-
-    # save trials_params
-    with open(f"{image_dir}/mlp_trials_params.json", "w", encoding="utf-8") as file:
-        json.dump(mlp_trials_params, file, indent=4, ensure_ascii=False)
-    with open(f"{image_dir}/cnn_trials_params.json", "w", encoding="utf-8") as file:
-        json.dump(cnn_trials_params, file, indent=4, ensure_ascii=False)
 
     # Final comparison
     labels = [ModelType.MLP.__str__(), ModelType.CNN.__str__()]
@@ -115,11 +107,11 @@ def main():
         plt.text(i, v + 0.01, f"{v:.4f}", ha="center")
 
     plt.tight_layout()
-    plt.savefig(f"{image_dir}/comparison_results.png")
+    plt.savefig(f"{IMAGE_DIR}/comparison_results.png")
     plt.close()
 
     print("\n===== Visualization Complete =====")
-    print(f"All visualizations saved to: {image_dir}")
+    print(f"All visualizations saved to: {IMAGE_DIR}")
 
 
 if __name__ == "__main__":

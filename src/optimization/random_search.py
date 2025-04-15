@@ -1,3 +1,4 @@
+import json
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -10,7 +11,7 @@ from src.models.model_type import ModelType
 from src.utils.train import evaluate_model, train_model
 from src.utils.visualization import plot_training_history
 
-from src.utils.constants import TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
+from src.utils.constants import IMAGE_DIR, TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
 from src.utils.dataset import load_mnist_data
 
 
@@ -82,15 +83,16 @@ class RandomSearch:
         best_model = None
         best_history = None
 
-        trial_params = []
+        trials_params = {}
+        trials_histories = {}
 
         for i in range(self.num_trials):
             while True:
                 params = self.sample_params()
-                if params not in trial_params:
+                if params not in trials_params.values():
                     break
 
-            trial_params.append(params)
+            trials_params[i] = params
 
             print(f"\nTrial {i+1}/{self.num_trials}")
             print(f"Parameters: {params}")
@@ -134,6 +136,8 @@ class RandomSearch:
                 device=self.device,
             )
 
+            trials_histories[i] = history
+
             # Evaluate on validation set
             val_loss, val_acc = evaluate_model(model, val_loader, criterion, device=self.device)
 
@@ -163,4 +167,12 @@ class RandomSearch:
             model_type=self.model_type,
         )
 
-        return best_model, best_params, self.results, trial_params
+        # save trials_params
+        with open(f"{IMAGE_DIR}/{self.model_type}_trials_params.json", "w", encoding="utf-8") as file:
+            json.dump(trials_params, file, indent=4, ensure_ascii=False)
+
+        # save trials_histories
+        with open(f"{IMAGE_DIR}/{self.model_type}_trials_histories.json", "w", encoding="utf-8") as file:
+            json.dump(trials_histories, file, indent=4, ensure_ascii=False)
+
+        return best_model, best_params, self.results

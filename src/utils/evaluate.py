@@ -33,7 +33,7 @@ def test_model(model, test_ds: any, device: torch.device):
     cm = confusion_matrix(all_labels, all_preds)
 
     # Classification report
-    report = classification_report(all_labels, all_preds, digits=4)
+    report = classification_report(all_labels, all_preds, digits=4, output_dict=True)
 
     # Accuracy
     accuracy = np.mean(np.array(all_preds) == np.array(all_labels))
