@@ -1,0 +1,4502 @@
+{
+    "0": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "1": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "2": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "3": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "4": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "5": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "6": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "7": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "8": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "9": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "10": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "11": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "12": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "13": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "14": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "15": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "16": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "17": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "18": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "19": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "20": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "21": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "22": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "23": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "24": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "25": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "26": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "27": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "28": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "29": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "30": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "31": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "32": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "33": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "34": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "35": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "36": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "37": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "38": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "39": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "40": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "41": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "42": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "43": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "44": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "45": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "46": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "47": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "48": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "49": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "50": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "51": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "52": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "53": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "54": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "55": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "56": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "57": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "58": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "59": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "60": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "61": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "62": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "63": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "64": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "65": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "66": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "67": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "68": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "69": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "70": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "71": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "72": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "73": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "74": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "75": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "76": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "77": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "78": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "79": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "80": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "81": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "82": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "83": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "84": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "85": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "86": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "87": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "88": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "89": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "90": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "91": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "92": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "93": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "94": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "95": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "96": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "97": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "98": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "99": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "100": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "101": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "102": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "103": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "104": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "105": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "106": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "107": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "108": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "109": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "110": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "111": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "112": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "113": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "114": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "115": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "116": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "117": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "118": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "119": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "120": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "121": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "122": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "123": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "124": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "125": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "126": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "127": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "128": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "129": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "130": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "131": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "132": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "133": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "134": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "135": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "136": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "137": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "138": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "139": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "140": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "141": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "142": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "143": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "144": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "145": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "146": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "147": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "148": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "149": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "150": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "151": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "152": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "153": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "154": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "155": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "156": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "157": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "158": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "159": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "160": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "161": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "162": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "163": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "164": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "165": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "166": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "167": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "168": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "169": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "170": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "171": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "172": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "173": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "174": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "175": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "176": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "177": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "178": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "179": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "180": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "181": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "182": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "183": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "184": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "185": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "186": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "187": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "188": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "189": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "190": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "191": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "192": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "193": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "194": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "195": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "196": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "197": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "198": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "199": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "200": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "201": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "202": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "203": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "204": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "205": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "206": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "207": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "208": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "209": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "210": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "211": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "212": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "213": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "214": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "215": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "216": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "217": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "218": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "219": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "220": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "221": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "222": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "223": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "224": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "225": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "226": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "227": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "228": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "229": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "230": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "231": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "232": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "233": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "234": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "235": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "236": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "237": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "238": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "239": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "240": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "241": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "242": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "243": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "244": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "245": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "246": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "247": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "248": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "249": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "250": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "251": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "252": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "253": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "254": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "255": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "256": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "257": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "258": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "259": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "260": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "261": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "262": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "263": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "264": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "265": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "266": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "267": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "268": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "269": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "270": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "271": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "272": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "273": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "274": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "275": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "276": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "277": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "278": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "279": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "280": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "281": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "282": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "283": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "284": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "285": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "286": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "287": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "288": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "289": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "290": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "291": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "292": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "293": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "294": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "295": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "296": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "297": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "298": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "299": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "300": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "301": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "302": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "303": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "304": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "305": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "306": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "307": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "308": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "309": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "310": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "311": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "312": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "313": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "314": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "315": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "316": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "317": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "318": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "319": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "320": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "321": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "322": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "323": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "324": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "325": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "326": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "327": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "328": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "329": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "330": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "331": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "332": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "333": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "334": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "335": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "336": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "337": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "338": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "339": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "340": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "341": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "342": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "343": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "344": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "345": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "346": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "347": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "348": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "349": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "350": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "351": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "352": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "353": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "354": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "355": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "356": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "357": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "358": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "359": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "360": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "361": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "362": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "363": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "364": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "365": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "366": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "367": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "368": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "369": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "370": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "371": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "372": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "373": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "374": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "375": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "376": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "377": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "378": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "379": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "380": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "381": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "382": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "383": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "384": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "385": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "386": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "387": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "388": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "389": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "390": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "391": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "392": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "393": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "394": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "395": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "396": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "397": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "398": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "399": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "400": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "401": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "402": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "403": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "404": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "405": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "406": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "407": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "408": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "409": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "410": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "411": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "412": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "413": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "414": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "415": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "416": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "417": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "418": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "419": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "420": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "421": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "422": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "423": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "424": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "425": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "426": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "427": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "428": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "429": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "430": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "431": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "432": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "433": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "434": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "435": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "436": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "437": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "438": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "439": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "440": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "441": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "442": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "443": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "444": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "445": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "446": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "447": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "448": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "449": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "450": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "451": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "452": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "453": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "454": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "455": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "456": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "457": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "458": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "459": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "460": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "461": {
+        "batch_size": 128,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "462": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "463": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "464": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "465": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "466": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "467": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "468": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "469": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "470": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "471": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "472": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "473": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "474": {
+        "batch_size": 128,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "475": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 30
+    },
+    "476": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "477": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "478": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 30
+    },
+    "479": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "480": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "481": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "482": {
+        "batch_size": 32,
+        "hidden_layers": 1,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "483": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "484": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "485": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "486": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "487": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "488": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "489": {
+        "batch_size": 64,
+        "hidden_layers": 4,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "490": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 90
+    },
+    "491": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "492": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 256,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "softmax",
+        "num_epochs": 60
+    },
+    "493": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 128,
+        "learning_rate": 0.01,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 60
+    },
+    "494": {
+        "batch_size": 64,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "relu",
+        "num_epochs": 90
+    },
+    "495": {
+        "batch_size": 32,
+        "hidden_layers": 4,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "496": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.001,
+        "optimizer": "rprop",
+        "activation_fn": "relu",
+        "num_epochs": 30
+    },
+    "497": {
+        "batch_size": 128,
+        "hidden_layers": 2,
+        "hidden_size": 64,
+        "learning_rate": 0.01,
+        "optimizer": "rprop",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    },
+    "498": {
+        "batch_size": 64,
+        "hidden_layers": 1,
+        "hidden_size": 128,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 60
+    },
+    "499": {
+        "batch_size": 32,
+        "hidden_layers": 2,
+        "hidden_size": 32,
+        "learning_rate": 0.0001,
+        "optimizer": "adam",
+        "activation_fn": "sigmoid",
+        "num_epochs": 90
+    }
+}
