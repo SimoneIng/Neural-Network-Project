@@ -30,9 +30,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # device = "mps" if torch.backends.mps.is_available() else "cpu"
 print(f"Using: {device}")
 
-
 def main():
-
     # Run random search for CNN
     print("\n===== Random Search for CNN =====")
     cnn_random_search = RandomSearch(ModelType.CNN, cnn_param_space, device, num_trials=NUM_TRIALS)
@@ -48,7 +46,7 @@ def main():
     # Test the best MLP model
     print("\n===== Evaluation of the best MLP on Test Set =====")
     mlp_accuracy, mlp_cm, mlp_report = test_model(best_mlp, mlp_random_search.test_ds, device)
-    print(f"MLP Test Accuracy: {mlp_accuracy:.4f}")
+    print(f"MLP Test Accuracy: {mlp_accuracy}")
     with open(f"{IMAGE_DIR}/MLP_report.json", "w", encoding="utf-8") as file:
         json.dump(mlp_report, file, indent=4, ensure_ascii=False)
     plot_confusion_matrix(mlp_cm, title="Confusion Matrix - MLP", model_type=ModelType.MLP, save_dir=IMAGE_DIR)
@@ -56,7 +54,7 @@ def main():
     # Test the best CNN model
     print("\n===== Evaluation of the best CNN on Test Set =====")
     cnn_accuracy, cnn_cm, cnn_report = test_model(best_cnn, cnn_random_search.test_ds, device)
-    print(f"CNN Test Accuracy: {cnn_accuracy:.4f}")
+    print(f"CNN Test Accuracy: {cnn_accuracy}")
     with open(f"{IMAGE_DIR}/CNN_report.json", "w", encoding="utf-8") as file:
         json.dump(cnn_report, file, indent=4, ensure_ascii=False)
     plot_confusion_matrix(cnn_cm, title="Confusion Matrix - CNN", model_type=ModelType.CNN, save_dir=IMAGE_DIR)
@@ -65,8 +63,8 @@ def main():
     print("\n===== Results Comparison =====")
     print(f"MLP Best Parameters: {best_mlp_params}")
     print(f"CNN Best Parameters: {best_cnn_params}")
-    print(f"MLP Test Accuracy: {mlp_accuracy:.4f}")
-    print(f"CNN Test Accuracy: {cnn_accuracy:.4f}")
+    print(f"MLP Test Accuracy: {mlp_accuracy}")
+    print(f"CNN Test Accuracy: {cnn_accuracy}")
 
     # Plot training history for best models
     for model_type, history in [(ModelType.MLP, mlp_results[0]["history"]), (ModelType.CNN, cnn_results[0]["history"])]:
@@ -104,7 +102,7 @@ def main():
 
     # Add values above bars
     for i, v in enumerate(test_accuracies):
-        plt.text(i, v + 0.01, f"{v:.4f}", ha="center")
+        plt.text(i, v + 0.01, f"{v}", ha="center")
 
     plt.tight_layout()
     plt.savefig(f"{IMAGE_DIR}/comparison_results.png")

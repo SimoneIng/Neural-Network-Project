@@ -2,3 +2,35 @@
 __pycache__
 images
 grafici
+
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.xdv
+*.aux
+*.txt
+*.gz
+*.4tc
+*.tmp
+*.xref
+*.blg
+*.glg
+*.gls
+*.acn
+*.ist
+*.bcf
+*.lot
+*.glo
+*.lof
+*.bbl
+*.Identifier
+*.run.xml
+**/build/**
+
+!*.pdf
+!discorso.txt
+# **/build/**
+# !**/build/ciao.dart

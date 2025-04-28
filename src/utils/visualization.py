@@ -86,7 +86,7 @@ def plot_random_search_results(
         plt.text(
             bar.get_x() + bar.get_width() / 2.0,
             height + 0.01,
-            f"{acc_values[i]:.4f}",
+            f"{acc_values[i]}",
             ha="center",
             va="bottom",
         )

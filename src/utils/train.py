@@ -1,3 +1,4 @@
+import copy
 import torch
 from torch.utils.data import DataLoader
 
@@ -16,20 +17,14 @@ def train_model(
     num_epochs=10,
     patience=5,
 ):
-    model = model.to(device)
     best_val_acc = 0.0
     best_model_weights = None
     history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
 
     # Parameters for early stopping
     counter = 0
-    early_stop = False
 
     for epoch in range(num_epochs):
-        if early_stop:
-            print(f"Early stopping activated at epoch {epoch}")
-            break
-
         model.train()
         running_loss = 0.0
         correct = 0
@@ -63,14 +58,14 @@ def train_model(
 
         print(
             f"Epoch {epoch+1}/{num_epochs} | "
-            f"Train Loss: {train_loss:.4f} | Train Acc: {train_acc:.4f} | "
-            f"Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f}"
+            f"Train Loss: {train_loss} | Train Acc: {train_acc} | "
+            f"Val Loss: {val_loss} | Val Acc: {val_acc}"
         )
 
         # Save best model
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            best_model_weights = model.state_dict().copy()
+            best_model_weights = copy.deepcopy(model.state_dict())
             counter = 0  # Reset early stopping counter
         else:
             counter += 1  # Increment counter
@@ -78,7 +73,7 @@ def train_model(
         # Early stopping
         if counter >= patience:
             print(f"No improvement for {patience} consecutive epochs. Early stopping.")
-            early_stop = True
+            break
 
     # Load best model weights
     model.load_state_dict(best_model_weights)

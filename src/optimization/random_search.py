@@ -11,7 +11,7 @@ from src.models.model_type import ModelType
 from src.utils.train import evaluate_model, train_model
 from src.utils.visualization import plot_training_history
 
-from src.utils.constants import IMAGE_DIR, TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
+from src.utils.constants import IMAGE_DIR, PATIENCE, TEST_SIZE, TRAINING_SIZE, VALIDATION_SIZE
 from src.utils.dataset import load_mnist_data
 
 
@@ -52,7 +52,7 @@ class RandomSearch:
             case ModelType.MLP:
                 hidden_layers = params["hidden_layers"]
                 hidden_sizes = [params["hidden_size"]] * hidden_layers
-                return MLP(hidden_layers, hidden_sizes, params["activation_fn"])
+                return MLP(hidden_layers, hidden_sizes, params["activation_fn"]).to(self.device)
             case ModelType.CNN:
                 num_conv_layers = params["num_conv_layers"]
                 filters = [params["filters"]] * num_conv_layers
@@ -67,7 +67,7 @@ class RandomSearch:
                     hidden_layers,
                     hidden_sizes,
                     params["activation_fn"],
-                )
+                ).to(self.device)
 
     def create_optimizer(self, model: CNN | MLP, params) -> optim.Optimizer | None:
         match params["optimizer"]:
@@ -77,7 +77,7 @@ class RandomSearch:
                 return optim.Rprop(model.parameters(), lr=params["learning_rate"])
 
     def search(self):
-        criterion = nn.CrossEntropyLoss()
+        criterion = nn.CrossEntropyLoss().to(self.device)
         best_val_acc = 0.0
         best_params = None
         best_model = None
@@ -132,7 +132,7 @@ class RandomSearch:
                 optimizer,
                 criterion,
                 num_epochs=num_epochs,
-                patience=5,
+                patience=PATIENCE,
                 device=self.device,
             )
 
@@ -144,7 +144,7 @@ class RandomSearch:
             # Record results
             self.results.append({"params": params, "val_loss": val_loss, "val_acc": val_acc, "history": history})
 
-            print(f"Validation Accuracy: {val_acc:.4f}")
+            print(f"Validation Accuracy: {val_acc}")
 
             # Update best model
             if val_acc > best_val_acc:

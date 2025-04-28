@@ -77,7 +77,10 @@ print(f"Device utilizzato: {device}")
 
 start_time = time.time()
 loaded_model = load_model("./src/experiments/results/cnn_model.pt", device)
-print(f"Caricamento modello: {time.time() - start_time:.4f} secondi")
+print(f"Caricamento modello: {time.time() - start_time} secondi")
+
+for key, value in loaded_model.state_dict().items():
+    print(torch.Tensor(value).shape)
 
 # test_image = get_mnist_digit(8, return_first=True) 
 # prediction = inference(loaded_model, test_image.to(device))
@@ -85,24 +88,24 @@ print(f"Caricamento modello: {time.time() - start_time:.4f} secondi")
 # print(prediction.shape)
 # print(prediction.item())
 
-for i in range(10):
-    digit = i
-    num_samples = 10000
-    correct = 0
+# for i in range(10):
+#     digit = i
+#     num_samples = 10000
+#     correct = 0
 
-    print(f"DIGIT: {digit}")
-    start_time = time.time()
-    test_images = get_mnist_digit(digit, num_samples=num_samples, return_first=False)  # Esempio di un'immagine MNIST
-    print(f"Caricamento data set: {time.time() - start_time:.4f} secondi")
+#     print(f"DIGIT: {digit}")
+#     start_time = time.time()
+#     test_images = get_mnist_digit(digit, num_samples=num_samples, return_first=False)  # Esempio di un'immagine MNIST
+#     print(f"Caricamento data set: {time.time() - start_time} secondi")
 
-    start_time = time.time()
-    for i in range(test_images.shape[0]):
-        # print_mnist_digit(test_images[i])
-        # print("#################")
-        prediction = inference(loaded_model, test_images[i].unsqueeze(0).to(device))
-        if prediction.item() == digit:
-            correct += 1
-    print(f"Inferenza: {time.time() - start_time:.4f} secondi")
+#     start_time = time.time()
+#     for i in range(test_images.shape[0]):
+#         # print_mnist_digit(test_images[i])
+#         # print("#################")
+#         prediction = inference(loaded_model, test_images[i].unsqueeze(0).to(device))
+#         if prediction.item() == digit:
+#             correct += 1
+#     print(f"Inferenza: {time.time() - start_time} secondi")
 
-    print(f"{correct}/{test_images.shape[0]}")
-    print("\n")
+#     print(f"{correct}/{test_images.shape[0]}")
+#     print("\n")
